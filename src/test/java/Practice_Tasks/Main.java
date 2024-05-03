@@ -56,6 +56,8 @@ public class Main
         zooAnimals.add(new Donkey(2, 32.2, "Little"));
 
         // Create Zoo instance with city "New York" and pass the list of animals
+        // Need to convert list to collection?
+        
         Zoo newYorkZoo = new Zoo( 0,0,"New York",zooAnimals);
 
 

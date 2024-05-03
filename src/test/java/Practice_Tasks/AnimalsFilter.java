@@ -20,18 +20,30 @@ public class AnimalsFilter extends Animal
             this.food=food;
         }
      public void findByFood() {
-        Map<String, Animal> foodList = new HashMap<>();
+        /*Map<String, Animal> foodList = new HashMap<>();
         foodList.put("Monkey", new AnimalsFilter(23,30.8,List.of("Banana")));
         foodList.put("Lion", new AnimalsFilter(20,39.8,List.of("Meats")));
         foodList.put("Tiger", new AnimalsFilter(17,44.8,List.of("Meats")));
-        foodList.put("Birds", new AnimalsFilter(3,10,List.of("Insects")));
-        List<Animal> findFood = foodList.values().stream().filter(animal->
+        foodList.put("Birds", new AnimalsFilter(3,10,List.of("Insects")));*/
+
+         Map<String, Animal> animalFoodMap = createAnimalFoodsMap();
+
+         List<Animal> findFood = animalFoodMap.values().stream().filter(animal->
         {
                 List<String>foods = (List<String>) ((AnimalsFilter) animal).food;
                 return  foods.contains("Meats");
 
         }).collect(Collectors.toList());
         System.out.println(findFood);
+    }
+
+    private Map<String, Animal> createAnimalFoodsMap() {
+        Map<String, Animal> foodList = new HashMap<>();
+        foodList.put("Monkey", new AnimalsFilter(23,30.8,List.of("Banana")));
+        foodList.put("Lion", new AnimalsFilter(20,39.8,List.of("Meats")));
+        foodList.put("Tiger", new AnimalsFilter(17,44.8,List.of("Meats")));
+        foodList.put("Birds", new AnimalsFilter(3,10,List.of("Insects")));
+        return foodList;
     }
 
     @Override
